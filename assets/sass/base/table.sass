@@ -1,0 +1,52 @@
+//Таблицы
+
+
+//Селекторы
+table
+	border-collapse: collapse
+	border-spacing: 0
+	margin-bottom: 15px
+	text-align: center
+	max-width: 100%
+th, td
+	padding: 10px
+	&:first-of-type
+		text-align: left
+th
+	color: #fff
+	background-color: $color-base
+tr
+	&:hover
+		+hover
+			background-color: $color-light
+
+//Адаптив для таблиц
+=table
+	+responsive
+	display: inline-block
+	max-width: 100%
+	margin: 0 -#{$padding}
+	padding: 0 0 0 $padding*2
+	box-sizing: content-box
+
+=tbody
+	thead, tbody 
+		transform: translateX(-$padding)
+
+//Стиль для всех таблиц!
+@if $table-all == true
+	table
+		+table
+		+tbody	
+@else
+	//Класс для таблицы .table
+	@if $table == true
+		.table
+			+table
+			+tbody
+	//Класс для блока .table-block, где таблица
+	@if $table-block == true
+		.table-block
+			+tbody
+			table
+				+table

@@ -1,0 +1,217 @@
+//Анимации
+//
+//+animate_fade(up/down/left/right, 1s)
+//+animate_slide(left/right/up/down, 1s)
+//+animate_pull(left/right/up/down, 1.1s)
+//+animate_bigEntrance(right/left, 1.6s)
+//+animate_flip(x/y, 1s)
+//+animate_expandUp(0.7s)
+//+animate_zoom(0.6s)
+//+animate_jump(0.6s)
+//+animate_hatch(2s)
+
+
+//animate_fade
+=animate_fade($type: up, $time: 1s)
+	$i: 1
+	@if $type==right or $type==down
+		$i: -1
+
+	$x: 1
+	$y: 0
+	@if $type==down or $type==up
+		$x: 0
+		$y: 1
+
+	animation: a_fade#{$type} $time
+	@at-root
+		@keyframes a_fade#{$type}
+			from
+				opacity: 0
+				transform: translate3d($i*$x*100%, $i*$y*100%, 0)
+			to
+				opacity: 1
+
+//animate_slide
+=animate_slide($type: left, $time: 1s)
+	$i: 1
+	@if $type==right or $type==down
+		$i: -1
+
+	$x: 1
+	$y: 0
+	@if $type==down or $type==up
+		$x: 0
+		$y: 1
+
+	animation: a_slide#{$type} $time ease-in-out
+	@at-root
+		@keyframes a_slide#{$type}
+			0%
+				transform: translate3d($i*$x*150%, $i*$y*150%, 0)
+			50%
+				transform: translate3d(-$i*$x*8%, -$i*$y*8%, 0)
+			65%
+				transform: translate3d($i*$x*4%, $i*$y*4%, 0)
+			80%
+				transform: translate3d(-$i*$x*4%, -$i*$y*4%, 0)
+			95%
+				transform: translate3d($i*$x*2%, $i*$y*2%, 0)
+			100%
+				transform: translate(0)
+
+//animate_pull
+=animate_pull($type: left, $time: 1.1s)
+	$x: 1
+	$y: 0
+	$os: x
+	@if $type==down or $type==up
+		$x: 0
+		$y: 1
+		$os: y
+
+	@if $type==left
+		transform-origin: 100% 0
+	@else if $type==right
+		transform-origin: 0 0
+	@else if $type==down
+		transform-origin: 50% 0
+	@else if $type==up
+		transform-origin: 50% 100%
+
+	animation: a_pull#{$os} $time ease-out
+	@at-root
+		@keyframes a_pull#{$os}
+			0%
+				transform: scale(1-$x+0.1*$x, 1-$y+0.1*$y)
+			40%
+				transform: scale(1-$x+1.02*$x, 1-$y+1.02*$y)
+			60%
+				transform: scale(1-$x+0.98*$x, 1-$y+0.98*$y)
+			80%
+				transform: scale(1-$x+1.01*$x, 1-$y+1.01*$y)
+			100%
+				transform: scale(1)
+
+//animate_bigEntrance
+=animate_bigEntrance($type: right, $time: 1.6s)
+	$i: 1
+	@if $type==left
+		$i: -1	
+
+	animation: a_bigEntrance#{$type} $time ease-out
+	@at-root
+		@keyframes a_bigEntrance#{$type}
+			0% 
+				transform: scale(0.3) rotate($i*6deg) translate(-$i*30%, -30%)
+				opacity: 0.2
+			30% 
+				transform: scale(1.03) rotate(-$i*2deg) translate($i*2%, -2%)
+				opacity: 1
+			45% 
+				transform: scale(0.98) rotate($i*1deg)
+			60% 
+				transform: scale(1.01) rotate(-$i*1deg)
+			75% 
+				transform: scale(0.99) rotate($i*1deg)
+			90% 
+				transform: scale(1.01)
+			100% 
+				transform: scale(1)
+
+//animate_flip
+=animate_flip($type: x, $time: 1s)
+	$x: 1
+	$y: 0
+	@if $type==y
+		$x: 0
+		$y: 1
+
+	animation: a_flip#{$type} $time
+	@at-root
+		@keyframes a_flip#{$type}
+			from
+				transform: perspective(400px) rotate3d($x, $y, 0, 90deg)
+				animation-timing-function: ease-in
+				opacity: 0
+			40%
+				transform: perspective(400px) rotate3d($x, $y, 0, -20deg)
+				animation-timing-function: ease-in
+			60%
+				transform: perspective(400px) rotate3d($x, $y, 0, 10deg)
+				opacity: 1
+			80%
+				transform: perspective(400px) rotate3d($x, $y, 0, -5deg)
+			to
+				transform: perspective(400px)
+
+//animate_expandUp
+=animate_expandUp($time: 0.7s)
+	animation: a_expandUp $time ease
+	@at-root
+		@keyframes a_expandUp
+			0%
+				transform: translateY(100%) scale(0.6, 0.5)
+			60%
+				transform: translateY(-7%) scaleY(1.12)
+			75%
+				transform: translateY(3%)	
+			100%
+				transform: translateY(0)
+
+//animate_zoom
+=animate_zoom($time: 0.6s)
+	animation: a_zoom $time ease-in-out
+	@at-root
+		@keyframes a_zoom
+			0%
+				transform: scale3d(0.3, 0.3, 0.3)
+				opacity: 0
+			to
+				opacity: 1
+
+//animate_jump
+=animate_jump($time: 0.6s)
+	animation: a_jump $time ease-in-out
+	@at-root
+		@keyframes a_jump
+			0%
+				transform: scale(0)
+				opacity: 0
+			60%
+				transform: scale(1.1)
+			80%
+				transform: scale(0.9)
+				opacity: 1
+			100%
+				transform: scale(1)
+
+//animate_hatch
+=animate_hatch($time: 2s)
+	transform-origin: 50% 100%
+	animation: a_hatch $time ease-in-out
+
+	@at-root
+		@keyframes a_hatch
+			0%
+				transform: scaleY(0.6)
+			20%
+				transform: rotate(-2deg) scaleY(1.05)
+			35%
+				transform: rotate(2deg)
+			50%
+				transform: rotate(-2deg)	
+			65%
+				transform: rotate(1deg)	
+			80%
+				transform: rotate(-1deg)
+			100%
+				transform: rotate(0deg)	
+
+
+
+//Базовые анимации
+
+@keyframes show
+	0% 
+		opacity: 0

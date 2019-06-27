@@ -1,0 +1,50 @@
+//Изображения
+//<img data-src="" data-src-min=""			Картинка для ретины (при этом в data-src-min только имя файла)
+//<img src="" data-src="" class="img_p"		Картинка с превью (при этом в data-src только имя файла)
+//<img data-src="" class="img_h"	 		Без лоадера
+//<img data-src="" class="img_hero"			Грузить при общей загрузке
+//Фон
+//<div data-bk=""  class="bk_h"	 		Без лоадера
+//<div data-bk=""  class="bk_hero"		Грузить при общей загрузке
+
+/*IMG*/
+[data-src]:not(.img_show):not(.img_p):not(.img_h)
+	opacity: 0
+	@supports (object-fit: none)
+		opacity: 1
+		object-fit: none
+	+nojs
+		display: none
+
+.img_show
+	height: auto
+	animation: show 0.3s
+
+.img_p
+	transition: filter 0.3s
+	animation: none
+	&[data-src]
+		filter: blur(8px)
+	
+.img_h:not(.img_show)
+	opacity: 0 !important
+	animation: none
+
+/*DIV*/
+[data-bk]
+	background-image: $img
+	background-repeat: no-repeat
+	background-position: center
+	background-size: auto
+	&.bk_h, &.bk_hero
+		background-image: url(/images/nobk.png) !important
++nojs
+	[data-bk]
+		background: none
+
+.bk_h, .bk_hero
+	transition: background-image 0.3s
+
+//Селекторы
+img
+	max-width: 100%

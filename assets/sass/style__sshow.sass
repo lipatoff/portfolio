@@ -1,0 +1,29 @@
+/*Анимации появления эл-ов*/
+.sshow	//конкретный эл-нт
+	opacity: 0
+	+nojs
+		&
+			opacity: 1
+	&-show
+		opacity: 1
+		animation: show 0.3s
+
+.sshows //дочерние эл-ты
+	&>*
+		opacity: 0
+		+nojs
+			&
+				opacity: 1
+	.sshow-show
+		opacity: 1
+		animation: show 0.3s
+
+/*Кастомные анимации*/
+%SshowSlideRight
+	+animate_pull
+
+=SshowSlideRight
+	width: 300px
+	background: blue
+	&.sshow-show
+		@extend %SshowSlideRight

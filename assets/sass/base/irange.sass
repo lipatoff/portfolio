@@ -1,0 +1,39 @@
+//Поле от-до
+$irange-size: 14px
+.irange
+	position: relative
+	padding-bottom: 45px
+	-webkit-tap-highlight-color: transparent
+	&__input
+		width: 93px
+	&__range
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 5px
+		padding: 15px #{$irange-size / 2}
+		cursor: pointer
+	&__fill
+		position: relative
+		height: 4px
+		background-color: $color-light
+		pointer-events: none
+	&__fill-in
+		position: absolute
+		top: 0
+		bottom: 0
+		background-color: $color-base
+		&:before, &:after
+			content: ''
+			position: absolute
+			z-index: 2
+			top: 50%
+			width: $irange-size
+			height: $irange-size
+			margin: - $irange-size / 2
+			background-color: $color-base
+			border: 1px solid #fff
+		&:before
+			left: 0
+		&:after
+			right: 0

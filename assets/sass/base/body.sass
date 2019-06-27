@@ -1,0 +1,88 @@
+//Тело
+.body_fixed			//Используется для модальных окон в ios 11
+	position: fixed
+	width: 100vw
+
+//Селекторы
+body
+	display: flex
+	flex-direction: column
+	min-width: 300px
+	min-height: 100vh
+	opacity: 1
+	font: $font
+	color: $color-text
+	-webkit-text-size-adjust: none
+
+
+//Анимация переходов
+.body
+	@if $body_animate>0
+		@if $body_animate<3 			//Вариант 1 и 2
+			&_animation:after
+				content: ''
+				position: fixed
+				z-index: 9999
+				top: 0
+				right: 0
+				bottom: 0		
+				left: 0
+				pointer-events: none
+				transition: opacity 0.3s
+				@if $body_animate==1		//Вариант 1
+					background-color: #fff
+				@else     					//Вариант 2
+					background: $img calc(50vw - 35px) center/70px no-repeat #fff
+
+			&_visible:after
+				opacity: 0
+
+		@else if $body_animate==3     //Вариант 3
+			&_animation
+				&:before, &:after
+					content: ''
+					position: fixed
+					z-index: 9999
+					background-color: $color-base
+					left: 0
+					right: 0
+					height: 50vh
+					will-change: transform
+					transition: transform 0.3s
+				&:before
+					top: 0
+				&:after
+					bottom: 0
+
+			&_visible
+				&:before
+					transform: translateY(-100%)
+				&:after
+					transform: translateY(100%)
+		@if $body_animate==4 			//Вариант 4
+			&_animation
+				&:after, &:before
+					content: ''
+					position: fixed
+					top: 0
+					right: 0
+					bottom: 0		
+					left: 0
+					pointer-events: none
+					transition: transform 0.3s
+				&:before
+					z-index: 9998
+					background-color: darken($color-base, 20%)
+				&:after
+					z-index: 9999
+					background: $img calc(50vw - 35px) center/70px no-repeat #fff
+				
+			&_visible
+				&:before
+					transition: transform 0.6s 0.1s
+					transform: translateY(100%)
+				&:after
+					transition: transform 0.6s
+					transform: translateY(150%)
+				
+

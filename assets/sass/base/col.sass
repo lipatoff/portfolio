@@ -1,0 +1,50 @@
+//Колонки
+//.col - бить на колонки (.col.col2_xs, ..., .col.col6_xs - бить на 2...6 колонок)
+//.col.col212_xs - бить колонки на 2,1,2
+
+.col
+	+flex
+	margin: 0 -7px
+	>*
+		flex-grow: 1
+		display: block
+		width: 90%
+		margin: 7px
+	img
+		display: block
+		margin: auto
++cycle('.col2')
+	>*
+		width: 50%
++cycle('.col3')
+	>*
+		width: 33%
++cycle('.col4')
+	>* 
+		width: 25%
++cycle('.col5')
+	>*
+		width: 20%
++cycle('.col6')
+	>*
+		width: 15%
+
+//Включать .col212
+@if $col212 == true
+	+cycle('.col212')
+		>*
+			width: 50%
+		>:nth-child(3n)
+			margin: -14px 25%		
+	+cycle('.col3')
+		>:nth-child(3n)
+			margin: 0
+	+cycle('.col4')
+		>:nth-child(3n)
+			margin: 0
+	+cycle('.col5')
+		>:nth-child(3n)
+			margin: 0
+	+cycle('.col6')
+		>:nth-child(3n)
+			margin: 0

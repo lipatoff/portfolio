@@ -1,0 +1,128 @@
+//.hide - скрыть
+//.container - блок с фиксированной максимальной шириной
+//.breadcrumbs - хлебные крошки
+//.center - выравнивание по центру
+//.title - увеличить текст
+
+//Общие
+.container
+	margin: auto
+	padding: 0 $padding
+	max-width: $xl
+	+iphonex
+		padding-left: 50px
+		padding-right: 50px
+
+.center, .center p
+	text-align: center
+
+.error
+	background-color: $color-red
+	color: #fff
+
+//Телефон
+.phone
+	color: currentColor
+
+//js
++nojs
+	.js
+		display: none
++js 
+	.nojs
+		display: none
+
+.ajax__more
+	display: block
+	width: 200px
+	margin: auto
+	&.ajax__more_last
+		display: none
+
+//Сообщение об отключенном js
+.no-js
+	position: fixed
+	z-index: 999999
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: #fff
+	color: red
+	padding: 10px
+	text-align: center
+	opacity: 0.9
+	@if $font-bold!=$font-regular
+		font-weight: $font-bold
+
+//Хлебные крошки
+.breadcrumbs
+	+responsive
+	+nowrap
+	line-height: 30px
+	font-size: 0.8em
+	margin: 0 -#{$padding}
+	padding: 0 $padding
+	&__last
+		display: none
+		+media($m)
+			display: inline
+
+//152ФЗ
+.regulation
+	position: fixed
+	z-index: 999
+	background-color: #fff
+	padding: 20px 45px 5px 20px
+	left: 10px
+	right: 10px
+	bottom: 0
+	box-shadow: 0 0 10px #666
+	font-size: 0.8em
+	color: #000
+	&__button
+		position: absolute
+		top: 0
+		right: 0
+		padding: 20px
+		color: $color-base
+		font: bold 36px/0.5 serif
+		cursor: pointer
+
+//Yandex Maps
+.yamap
+	height: 70vh
+	max-height: 400px
+	background: $img center no-repeat
+
+ymaps input
+	width: 100% !important
+	margin: 0 !important 
+	padding: 0 !important
+	border-radius: 0 !important
+	box-shadow: none !important
+
+//.yac - для якорей
+.yac
+	position: relative
+	margin: 0
+	padding: 0
+	width: 0
+	height: 0
+	display: block
+	@if $yac == true
+		top: -$nav-height
+	@else
+		+media($nav)
+			top: -$nav-height
+
+//Переключатель
+.more
+	&+*
+		animation: show 0.3s
+	input:not(:checked)+&+*
+		display: none
+	input:checked+&
+		display: none
+
+.show
+	animation: show 0.3s

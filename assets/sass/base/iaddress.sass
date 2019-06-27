@@ -1,0 +1,33 @@
+//Поле адреса
+.iaddress
+
+.iaddress-list
+	transition: z-index 0s 0.3s, opacity 0s 0.3s
+	position: absolute
+	z-index: -2
+	top: 100%
+	right: 0
+	left: 0
+	opacity: 0
+	background-color: #fff
+	list-style: none
+	font: 400 0.74rem Arial
+	margin: 5px 0 0
+	padding: 0.5em 0
+	border: 1px solid #aaa
+	box-shadow: 0 0 2px $color-grey
+	user-select: none
+	.iaddress:focus + &:not(:empty), &:not(:empty):focus
+		z-index: 2
+		opacity: 1
+
+	&__item
+		margin: 0
+		padding: 0.5em 1em
+		cursor: pointer
+	&:not(:hover) &__item_select, &__item:hover
+		color: #fff
+		background-color: $color-base
+
+	+media(s)
+		left: 120px

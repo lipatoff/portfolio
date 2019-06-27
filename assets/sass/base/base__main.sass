@@ -1,0 +1,57 @@
+//Общие
+body, fieldset, figure, h1, .h1, ul, ol, input, textarea, label, button, mark, ins, dl, dt, dd
+	margin: 0
+	padding: 0
+	border: 0
+
+nav, label, figure
+	user-select: none
+
+html
+	box-sizing: border-box
+	font-size: $font-size_mobile
+	+media(m)
+		@if $font-size_mobile != $font-size
+			font-size: $font-size
+
+*, *:before, *:after
+	box-sizing: inherit
+
+::selection
+	color: #fff
+	background-color: $color-base
+
+
+//Текст
+p
+	margin: 0 0 1em
+
+b, strong, th
+	font-weight: $font-bold
+
+mark
+	background: none
+	color: $color-base
+
+//Ссылки и лейблы
+label, a
+	-webkit-tap-highlight-color: transparent
+
+label
+	cursor: pointer
+
+a
+	display: inline-block
+	max-width: 100%
+	color: currentColor
+	&, &:hover, &:focus
+		text-decoration: none
+		outline: 0
+
+//Контент
+main
+	flex-grow: 1
+	display: block
+	background-color: #fff
+	a
+		color: $color-a

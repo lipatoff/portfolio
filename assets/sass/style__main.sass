@@ -1,0 +1,47 @@
+/*ТЕЛО*/
+@import 'base/body'
+main
+	padding-bottom: $margin
+.aside
+	float: left
+	width: 225px
+	padding-right: $padding
+.article
+	overflow: hidden
+
+.breadcrumbs
+	margin-bottom: -$margin/2
+
+
+/*ЗАГОЛОВКИ*/
+@import 'base/title'
+h1, .h1, h2, h3, hr
+	margin: $margin 0
+
+
+/*СПИСКИ*/
+@import 'base/list'
+
+
+/*ИЗОБРАЖЕНИЯ*/
+@import 'base/img'
+
+
+/*ТАБЛИЦЫ*/
+@import 'base/table'
+td:only-of-type
+	background-color: $color-light
+
+/*152ФЗ*/
+@import 'base/regulation'
+
+
+/*КОЛОНКИ*/
+//@import 'base/col'
+
+
+/*Прочее*/
+.slideRight
+	+SshowSlideRight
+
+/*///ВСЕ, ЧТО НИЖЕ, МОЖНО УДАЛИТЬ/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/

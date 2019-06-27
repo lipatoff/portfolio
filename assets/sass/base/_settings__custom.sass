@@ -1,0 +1,138 @@
+//МЕДИАЗАПРОСЫ
+//mobile-first: +media(s) 
+=media($size)
+	@if $size==0 or $size==xs
+		@content
+	@else if $size==xl
+		@media (min-width: $xl)
+			@content
+	@else if $size==l
+		@media (min-width: $l)
+			@content
+	@else if $size==m
+		@media (min-width: $m)
+			@content
+	@else if $size==s
+		@media (min-width: $s)
+			@content
+	@else if $size!=false
+		@media (min-width: $size)
+			@content
+
+//desktop-first: +media-min(s)
+=media-min($size)
+	@if $size==0 or $size==xs
+		@content
+	@else if $size==xl
+		@media (max-width: $xl - 1)
+			@content
+	@else if $size==l
+		@media (max-width: $l - 1)
+			@content
+	@else if $size==m
+		@media (max-width: $m - 1)
+			@content
+	@else if $size==s
+		@media (max-width: $s - 1)
+			@content
+	@else if $size!=false
+		@media (max-width: $size - 1)
+			@content
+
+
+//ЦИКЛ МЕДИАЗАПРОСОВ
+//$class - класс, к которому добавляется _s,_m..
+//$noclass: 1 - не выводить класс _xs
+=cycle($class, $noclass: 0)
+	@if $noclass==0
+		#{$class}_xs
+			@content
+	@each $i in s, m, l, xl
+		+media($i)
+			#{$class}_#{$i}
+				@content
+
+//js//////////////////////////////////////////////
+=nojs
+	.js-no
+		@content
+=js
+	.js-yes
+		@content
+
+//load////////////////////////////////////////////
+=onload
+	.body_load &, .js-no &
+		@content
+
+=onload_fonts
+	opacity: 0
+	.loadfonts &, .js-no &
+		opacity: 1
+
+//devices//////////////////////////////////////////
+=hover
+	@media (hover), (min-width:0\0), (min--moz-device-pixel-ratio:0)
+		@content
+
+=iphonex
+	@media (-webkit-device-pixel-ratio: 3) and (orientation: landscape)
+		@content
+
+//flex////////////////////////////////////////////
+=flex-min
+	display: flex
+	justify-content: space-between
+
+=flex
+	display: flex
+	flex-flow: wrap
+	justify-content: space-around
+
+=flex-vert
+	display: flex
+	flex-direction: column
+	justify-content: center
+
+=flex-center
+	display: flex
+	justify-content: center
+	align-items: center
+
+//other///////////////////////////////////////////
+=dib
+	display: inline-block
+	vertical-align: middle
+
+=fixed
+	position: fixed
+	bottom: 0
+	top: -$ios-y*2
+	padding-top: $ios-y
+	padding-bottom: $ios-y
+	transform: translateY($ios-y)
+	overscroll-behavior: contain
+
+=touch
+	overflow: hidden
+	-webkit-overflow-scrolling: touch
+	&::-webkit-scrollbar
+		display: none
+
+=responsive
+	overflow: hidden
+	overflow-x: auto
+	-webkit-overflow-scrolling: touch
+	&::-webkit-scrollbar
+		height: 4px
+		@media (pointer:coarse)
+			display: none
+	&::-webkit-scrollbar-button
+		width: 0
+	&::-webkit-scrollbar-thumb
+		background-color: #888
+		border-radius: 3px
+
+=nowrap
+	white-space: nowrap
+	word-wrap: normal

@@ -1,0 +1,29 @@
+//Очистка свойств
+.clear
+	margin: 0
+	padding: 0
+
+	//Списки
+	&-ul
+		margin: 0
+		padding: 0
+		li
+			margin: 0
+			&:before
+				display: none
+	
+	//Радио и чек-кнопки
+	&-check
+		display: inline
+
+
+//Hover	
++hover
+	@if $color-a_hover != $color-a
+		main a
+			&:hover, &:focus
+				color: $color-a_hover
+
+//Скрытие элемента
+.hide
+	display: none
