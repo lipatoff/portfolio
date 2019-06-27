@@ -1,3 +1,46 @@
+<template>
+	<form class="form">
+		<div class="form__main">
+			<p v-if="title" class="form__title">{{ title }}</p>
+
+			<slot/>
+
+			<div class="form__item-submit">
+				<div class="form__assent">
+					<label>
+						<input class="form__input form__input_notempty" name="oassent" type="checkbox" required="" checked="checked">
+						<i></i>Даю согласие на обработку<br>своих персональных данных
+					</label>
+				</div>
+				<input type="submit" class="form__button button" :value="button"/>
+			</div>
+
+			<input type="hidden" name="otype" value="1">
+		</div>
+
+       	<div class="form__message">
+        	<p class="form__title">Спасибо!</p>
+        	<p class="form__text">Скоро мы свяжемся с Вами!</p>
+        </div>
+	</form>
+</template>
+
+<script>
+export default {
+	props: {
+		title: {
+			type: String,
+			default: null
+		},
+		button: {
+			type: String,
+			default: 'Отправить'
+		}
+	}
+}
+</script>
+
+<style lang="sass">
 //Форма
 .form
 	position: relative
@@ -174,7 +217,8 @@ input, label, button, select, textarea
 	display: none
 
 input+i
-	+dib
+	display: inline-block
+	vertical-align: middle
 	width: 15px
 	height: 15px
 	margin: 0 10px 1px 1px
@@ -197,3 +241,4 @@ input:focus+i
 		border-radius: 50%
 	&:checked+i
 		background-color: $color-base
+</style>

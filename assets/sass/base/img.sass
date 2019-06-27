@@ -13,8 +13,6 @@
 	@supports (object-fit: none)
 		opacity: 1
 		object-fit: none
-	+nojs
-		display: none
 
 .img_show
 	height: auto
@@ -38,9 +36,6 @@
 	background-size: auto
 	&.bk_h, &.bk_hero
 		background-image: url(/images/nobk.png) !important
-+nojs
-	[data-bk]
-		background: none
 
 .bk_h, .bk_hero
 	transition: background-image 0.3s

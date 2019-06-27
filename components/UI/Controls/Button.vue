@@ -1,6 +1,31 @@
+<template>
+	<button
+		class="button"
+		:class="bclass"
+		v-on="$listeners"
+		v-bind="$attrs">
+		<slot/>
+	</button>
+</template>
+
+<script>
+export default {
+	props: {
+		bclass: {
+			type: String,
+			default: ''
+		}
+	}
+}
+</script>
+
+<style lang="sass">
+$button_theme: 0 	//Кнопка button (от 1 до 3), 0=без стиля /=0
+
 //Кнопки
 .button
-	+dib
+	display: inline-block
+	vertical-align: middle
 	width: auto
 	margin: 10px 0
 	padding: 0.6em 1.2em 0.5em
@@ -16,6 +41,9 @@
 		color: transparent !important
 		background: $img_invert center/30px no-repeat $color-button
 		pointer-events: none
+	+hover
+		&:hover
+			background-color: $color-two
 	&+&
 		margin-left: 10px
 
@@ -67,3 +95,4 @@
 					box-shadow: 0 0 0 rgba($color-button, 0.3) inset
 				100% 
 					box-shadow: 0 3em 0 rgba($color-button, 0.3) inset
+</style>

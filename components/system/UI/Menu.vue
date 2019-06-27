@@ -88,7 +88,7 @@ export default {
 	text-align: center
 
 	+media-min($nav)
-		input:checked~&
+		&.menu_active
 			display: block
 
 	+media($nav)
@@ -115,16 +115,16 @@ export default {
 		@else
 			right: 0
 			transform: translate(100%, $ios-y)
-		input:checked~&
+		&.menu_active
 			transform: translate(0, $ios-y)
 
 		+media-min($nav)
-			input:checked~&
+			&.menu_active
 				display: unset
 
 		+media($nav)
 			max-width: none
-			input:checked~&
+			&.menu_active
 				transform: none
 	@else
 		left: 0

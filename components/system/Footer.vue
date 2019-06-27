@@ -16,7 +16,7 @@ export default {
 		padding-bottom: 20px
 	&__menu
 		.menu__item
-			+dib
+			display: inline-block
 
 footer p
 	margin: 0

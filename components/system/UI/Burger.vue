@@ -1,5 +1,5 @@
 <template>
-	<div class="burger" :class="{ burger_active: active }" :click="onClick">
+	<div class="burger" :class="{ burger_active: active }" @click="onClick">
 		<span class="burger__line"></span>
 		<span class="burger__line"></span>
 		<span class="burger__line"></span>
@@ -16,13 +16,15 @@ export default {
 	methods: {
 		onClick() {
 			this.active = !this.active
-			return this.$emit('onClick',this.active)
+			return this.$emit('click',this.active)
 		}
 	}
 }
 </script>
 
 <style lang="sass">
+$burger_animate: 1 		//Анимация кнопки меню (от 1 до 8), 0=без анимации /=1
+
 //Кнопка-гамбургер
 .burger
 	position: relative
@@ -57,7 +59,7 @@ export default {
 			left: 0
 			z-index: 1
 			transition: background-color $animate_speed
-			input:checked+&
+		&_active:before
 				background-color: rgba(0,0,0,0.4)
 				right: 0			
 		&:after
@@ -76,7 +78,7 @@ export default {
 		@if $burger_animate<3     //Вариант 1 и 2
 			transition: transform 0.3s, opacity 0.3s
 
-			input:checked+.burger &
+			.burger_active &
 				&:nth-child(1)
 					transform: translate(0, 8px) rotate(45deg)
 
@@ -104,12 +106,12 @@ export default {
 				height: 2px
 				background-color: currentColor
 			
-			&, input:checked+.burger &:before
+			&, .burger_active &:before
 				transition: transform 0.25s 0.25s, opacity 0s 0.25s
-			&:before, input:checked+.burger &
+			&:before, .burger_active &
 				transition: transform 0.25s, opacity 0s 0.25s
 
-			input:checked+.burger &
+			.burger_active &
 				@if $burger_animate==3
 					&:nth-child(1)
 						transform: translate(0, 8px)
@@ -157,7 +159,7 @@ export default {
 				&:before
 					transform: translate(0px, -8px) rotate(-45deg)
 
-			input:checked+.burger &
+			.burger_active &
 				box-shadow: 0px 0px 50px 20px transparent
 				transition: box-shadow 0.5s
 
@@ -169,7 +171,7 @@ export default {
 		@else if $burger_animate==7     //Вариант 7
 			transition: transform 0.3s
 
-			input:checked+.burger &
+			.burger_active &
 				&:nth-child(1)
 					transform: translate(0px, 8px) rotate(-45deg)
 				&:nth-child(2)
@@ -184,7 +186,7 @@ export default {
 			&:nth-child(3)
 				transform-origin: 50% -7px
 
-			input:checked+.burger &
+			.burger_active &
 				transition: width 0.1s, transform 0.3s 0.1s
 				&:nth-child(1)
 					width: 2px
@@ -196,7 +198,7 @@ export default {
 					transform: rotate(-45deg) scaley(5) translatey(-7px)
 	
 	@else 	//Без анимации
-		input:checked+.burger &
+		.burger_active &
 			&:nth-child(1)
 				transform: translate(0, 8px) rotate(45deg)
 			&:nth-child(2)

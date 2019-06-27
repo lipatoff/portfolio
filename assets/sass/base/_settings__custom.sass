@@ -52,14 +52,6 @@
 			#{$class}_#{$i}
 				@content
 
-//js//////////////////////////////////////////////
-=nojs
-	.js-no
-		@content
-=js
-	.js-yes
-		@content
-
 //load////////////////////////////////////////////
 =onload
 	.body_load &, .js-no &
@@ -100,10 +92,6 @@
 	align-items: center
 
 //other///////////////////////////////////////////
-=dib
-	display: inline-block
-	vertical-align: middle
-
 =fixed
 	position: fixed
 	bottom: 0

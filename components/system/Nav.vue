@@ -1,8 +1,9 @@
 <template>
 	<nav class="nav">
 		<div class="container nav__container">
+			<nuxt-link class="logo" to="/">Blog</nuxt-link>
 			<Burger @click="burgerClick" />
-			<Menu :bclass="'menu_nav'" />
+			<Menu :bclass="menuClass" />
 		</div>
 	</nav>
 </template>
@@ -21,9 +22,16 @@ export default {
 			active: false
 		}
 	},
+	computed: {
+		menuClass() {
+			if (this.active) return 'menu_nav menu_active'
+			return 'menu_nav'
+		}
+	},
 	methods: {
 		burgerClick(status) {
-			this.active = status
+			console.log(status)
+			return this.active = status
 		}
 	}
 
