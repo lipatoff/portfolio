@@ -10,8 +10,8 @@
 <script>
 export default {
 	head() {
-		let title = 'Dmitrii Lipatov',
-			descr = 'Сайт-портфолио Дмитрий Липатова',
+		let title = 'Мои Контакты',
+			descr = 'Как со мной связаться',
 			type = 'site'
 
 		return {
@@ -25,15 +25,15 @@ export default {
 		}
 	},
 	created() {
-		this.$store.dispatch('setH1', 'Портфолио')
+		this.$store.dispatch('setH1', 'Контакты')
 		//this.$store.dispatch('posts/nuxtServerInit')
 	},
-	/*
+/*
 	computed: {
 		postsLoaded() {
 			return this.$store.getters['posts/getPostsLoaded']
 		}
 	}
-	*/
+*/
 }
 </script>

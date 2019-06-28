@@ -1,7 +1,8 @@
 <template>
 	<nav class="nav">
 		<div class="container nav__container">
-			<nuxt-link class="logo" to="/">Blog</nuxt-link>
+			<nuxt-link class="logo" to="/"><img src="/img/logo.svg" alt="Логотип"/></nuxt-link>
+	
 			<Burger @click="burgerClick" />
 			<Menu :bclass="menuClass" />
 		</div>
@@ -47,11 +48,16 @@ export default {
 	height: $nav-height
 	color: $color-nav_text
 	font-size: $font-size
+	box-shadow: 0 0 0 1px $color-base
 
 	@if $nav_animate==right
 		right: 0
 	@else
 		left: 0
+
+	&__container
+		+flex-min
+		align-items: center
 
 	+media($nav)
 		position: static
@@ -77,4 +83,8 @@ export default {
 				+hover
 					&:hover
 						transform: none
+
+.logo
+	width: 195px
+	font-size: 0
 </style>

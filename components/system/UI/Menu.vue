@@ -18,7 +18,7 @@ export default {
 		return {
 			links: [
 				{title: 'Портфолио', url: '/portfolio/'},
-				{title: 'Контакты', url: '/kontakty/'}
+				{title: 'Контакты', url: '/contacts/'}
 			]
 		}
 	}
