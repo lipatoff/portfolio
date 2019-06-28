@@ -55,3 +55,59 @@ main
 	background-color: #fff
 	a
 		color: $color-a
+
+//Форма
+select
+	border: 1px solid #ccc
+
+textarea
+	resize: none
+	overflow: hidden
+	min-height: 80px
+	max-height: 30vh
+
+input, label, button, select, textarea
+	border-radius: 0
+	outline: 0
+
+[type=password],[type=text],[type=date],[type=datetime],[type=email],[type=number],[type=tel],[type=submit],textarea,label,button
+	-webkit-appearance: none
+
+[type=number]
+	width: auto
+	-moz-appearance: textfield
+	&::-webkit-inner-spin-button, &::-webkit-outer-spin-button
+		-webkit-appearance: none
+		-moz-appearance: none
+		appearance: none
+		margin: 0
+
+//checkbox и radio
+[type=checkbox], [type=radio]
+	display: none
+
+input+i
+	display: inline-block
+	vertical-align: middle
+	width: 15px
+	height: 15px
+	margin: 0 10px 1px 1px
+	box-shadow: 0 0 0 1px currentColor
+	background-color: #fff
+	color: $color-base
+	font-style: normal
+	text-align: center
+	line-height: 14px
+
+input:focus+i
+	background-color: $color-light
+
+[type=checkbox]
+	&:checked+i:before
+		content: '\2714'
+
+[type=radio]
+	&+i
+		border-radius: 50%
+	&:checked+i
+		background-color: $color-base

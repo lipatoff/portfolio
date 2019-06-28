@@ -2,7 +2,7 @@
 	<header class="header">
 		<div class="container header__container">
 			<div class="header__main">
-				<h1>Title</h1>
+				<h1>{{ h1 }}</h1>
 			</div>
 		</div>	
 	</header>
@@ -10,7 +10,11 @@
 
 <script>
 export default {
-	
+	computed: {
+		h1() {
+			return this.$store.getters['getH1']
+		}
+	}
 }
 </script>
 
