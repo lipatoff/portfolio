@@ -34,8 +34,6 @@ export default {
 
 <style lang="sass">
 .post
-	max-width: 385px
-	width: 33.33%
 	margin: 0 -10px 30px
 	padding: 20px
 	border-radius: 25px
@@ -79,21 +77,26 @@ export default {
 		position: absolute
 		transform-origin: bottom
 		transition: transform $animate-speed
-
-	&:hover
-		position: relative
-		z-index: 2
-		box-shadow: 0 0 10px 3px #ddd
-		transition: box-shadow $animate*1.2
-	&:hover &
-		&__img
-			transform: scale(1.7)
-			transition: transform $animate
-		&__title
-			color: currentColor
-			transition: color $animate
-		&__web
-			opacity: 1
-			transform: none
-			transition: opacity $animate, transform $animate
+	+hover
+		&:hover
+			position: relative
+			z-index: 2
+			box-shadow: 0 0 10px 3px #ddd
+			transition: box-shadow $animate*1.2
+		&:hover &
+			&__img
+				transform: scale(1.7)
+				transition: transform $animate
+			&__title
+				color: currentColor
+				transition: color $animate
+			&__web
+				opacity: 1
+				transform: none
+				transition: opacity $animate, transform $animate
+	
+	+media($m)
+		width: 50%
+	+media($l)
+		width: 35%
 </style>

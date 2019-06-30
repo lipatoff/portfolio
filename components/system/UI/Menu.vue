@@ -1,7 +1,7 @@
 <template>
 	<ul class="menu" :class="bclass">
 		<li v-for="(link, index) in links" :key="index" class="menu__item">
-			<nuxt-link class="menu__link" :to="link.url">{{ link.title }}</nuxt-link>
+			<nuxt-link class="menu__link" :to="link.url" @click.native="onClick">{{ link.title }}</nuxt-link>
 		</li>
 	</ul>
 </template>
@@ -20,6 +20,11 @@ export default {
 				{title: 'Портфолио', url: '/portfolio/'},
 				{title: 'Контакты', url: '/contacts/'}
 			]
+		}
+	},
+	methods: {
+		onClick() {
+			return this.$emit('click', false)
 		}
 	}
 }
@@ -134,5 +139,7 @@ export default {
 	@else
 		left: 0
 		right: 0
+
+	padding-top: 110px
 
 </style>

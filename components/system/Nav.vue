@@ -3,8 +3,8 @@
 		<div class="container nav__container fbetween">
 			<nuxt-link class="logo" to="/"><img src="/img/logo.svg" alt="Логотип"/></nuxt-link>
 	
-			<Burger @click="burgerClick" />
-			<Menu :bclass="menuClass" />
+			<Burger :active="active" @click="toggleActive" />
+			<Menu :bclass="menuClass" @click="toggleActive" />
 		</div>
 	</nav>
 </template>
@@ -30,8 +30,7 @@ export default {
 		}
 	},
 	methods: {
-		burgerClick(status) {
-			console.log(status)
+		toggleActive(status) {
 			return this.active = status
 		}
 	}
@@ -80,7 +79,11 @@ export default {
 					&:hover
 						transform: none
 
+	left: 0
+	background-color: $color-nav
+
 .logo
 	width: 195px
 	font-size: 0
+	padding: 27px 0
 </style>

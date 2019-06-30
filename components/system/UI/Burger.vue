@@ -8,15 +8,15 @@
 
 <script>
 export default {
-	data() {
-		return {
-			active: false
+	props: {
+		active: {
+			type: Boolean,
+			requared: true
 		}
 	},
 	methods: {
 		onClick() {
-			this.active = !this.active
-			return this.$emit('click',this.active)
+			return this.$emit('click',!this.active)
 		}
 	}
 }
@@ -31,20 +31,27 @@ $burger_animate: 1 		//Анимация кнопки меню (от 1 до 8), 0
 	z-index: 9999
 	top: 5px
 	display: inline-block
-	padding: 5px 10px 11px
+	padding: 2px 10px 11px
 	background-color: $color-nav
 	@if $nav_animate!=right
 		left: -10px
 	&__line
 		display: block
-		width: 21px
+		width: 25px
 		height: 2px
 		margin: 6px auto 0
 		color: currentColor
 		background-color: currentColor
+		&:nth-child(3)
+			height: 4px
+			color: #000
 
 	+media($nav)
 		display: none
+
+	color: $color-grey
+	top: 0
+	right: -10px
 
 //Добавляет фон для закрытия меню
 .burger

@@ -28,7 +28,8 @@ export default {
 
 <style lang="sass">
 .posts
-	display: flex
-	flex-wrap: wrap
 	margin: 0 -10px
+	+media($m)
+		display: flex
+		flex-wrap: wrap
 </style>

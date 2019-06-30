@@ -65,7 +65,11 @@ export default {
 			+flex-min
 			align-items: center
 
+	padding-top: 70px
+	+media($nav)
+		padding-top: 0
+
 h1 span
 	color: #ccc
-	border-right: 4px solid #000
+	border-right: 4px solid $color-grey
 </style>
