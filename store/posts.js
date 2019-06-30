@@ -20,6 +20,10 @@ export const actions = {
 				for (let key in res.data) {
 					postsArray.push({ ...res.data[key], id: key })
 				}
+				postsArray.sort((a,b) => {
+					if (a.sort < b.sort) return 1
+					return -1
+				})
 				// Res
 				commit('setPosts', postsArray)
 			})

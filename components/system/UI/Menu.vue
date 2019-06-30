@@ -52,6 +52,11 @@ export default {
 		display: inline-block
 		line-height: $nav-height - 20
 		padding: 10px $padding
+		transition: box-shadow $animate
+		&.active
+			box-shadow: 0 -2px inset
+		&:hover
+			opacity: 0.6
 
 	&__submenu
 		display: none

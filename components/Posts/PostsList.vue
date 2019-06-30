@@ -28,6 +28,7 @@ export default {
 
 <style lang="sass">
 .posts
-	+flex
-	margin: 0 -#{$padding}
+	display: flex
+	flex-wrap: wrap
+	margin: 0 -10px
 </style>

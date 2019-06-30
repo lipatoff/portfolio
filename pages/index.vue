@@ -4,11 +4,19 @@
 		<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Океана, первую толку строчка курсивных ты обеспечивает предложения, выйти домах переписали, взгляд дороге послушавшись за они семь все последний что?</p>
 		<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Океана, первую толку строчка курсивных ты обеспечивает предложения, выйти домах переписали, взгляд дороге послушавшись за они семь все последний что?</p>
 		<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Океана, первую толку строчка курсивных ты обеспечивает предложения, выйти домах переписали, взгляд дороге послушавшись за они семь все последний что?</p>
+		<h2>Портфолио</h2>
+		<postsList :posts="postsLoaded" />
+		<div class="center"><nuxt-link class="button" to="/portfolio/">Все работы</nuxt-link></div>
 	</div>
 </template>
 
 <script>
+import postsList from '@/components/Posts/PostsList.vue'
+
 export default {
+	components: {
+		postsList
+	},
 	head() {
 		let title = 'Dmitrii Lipatov',
 			descr = 'Сайт-портфолио Дмитрий Липатова',
@@ -25,15 +33,14 @@ export default {
 		}
 	},
 	created() {
-		this.$store.dispatch('setH1', 'Портфолио')
-		//this.$store.dispatch('posts/nuxtServerInit')
+		this.$store.dispatch('setH1', 'Дмитрий Липатов')
+		this.$store.dispatch('posts/nuxtServerInit')
 	},
-	/*
 	computed: {
 		postsLoaded() {
-			return this.$store.getters['posts/getPostsLoaded']
+			let posts = this.$store.getters['posts/getPostsLoaded']
+			return posts.slice(0,6)
 		}
 	}
-	*/
 }
 </script>

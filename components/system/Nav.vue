@@ -1,6 +1,6 @@
 <template>
 	<nav class="nav">
-		<div class="container nav__container">
+		<div class="container nav__container fbetween">
 			<nuxt-link class="logo" to="/"><img src="/img/logo.svg" alt="Логотип"/></nuxt-link>
 	
 			<Burger @click="burgerClick" />
@@ -54,10 +54,6 @@ export default {
 		right: 0
 	@else
 		left: 0
-
-	&__container
-		+flex-min
-		align-items: center
 
 	+media($nav)
 		position: static

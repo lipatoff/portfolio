@@ -63,7 +63,9 @@ export default {
 	** Routing
 	*/
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/blog-nuxt/' : '/'
+    base: process.env.NODE_ENV === 'production' ? '/blog-nuxt/' : '/',
+    linkActiveClass: 'active',
+    linkExactActiveClass: '',
   },
   /*
   ** Build configuration
