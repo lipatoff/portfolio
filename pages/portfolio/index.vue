@@ -1,6 +1,7 @@
 <template>
 	<div class="container">
 		<postsList :posts="postsLoaded" />
+		<!-- <button @click="addPost">dd</button> -->
 	</div>
 </template>
 
@@ -32,22 +33,24 @@ export default {
 	created() {
 		this.$store.dispatch('posts/nuxtServerInit')
 	},
+/*
 	methods: {
-		/*
+		
 		addPost(){
 			this.$store.dispatch('posts/addPost', {
-				title: 'Языковые курсы',
-				type: 'Сайт-витрина',
-				img: 'img/posts/classtrip.jpg',
-				link: 'classtrip.ru/',
-				descr: 'Каталог языковых курсов в США с поиском и подробным фильтром.<br/>Сайт предствален на нескольких языках: русском, английском, китайском и португальском.',
-				role: 'Разработка сайта',
-				tools: 'gulp, sass, mobile first, lazy load, ajax',
-				sort: 200
+				title: 'Консалтинг',
+				color: '#ddd',
+				type: 'Информационный сайт',
+				img: 'img/posts/pvcg.jpg',
+				link: '',
+				descr: '',
+				role: 'Разработка + Дизайн внутренних',
+				tools: 'gulp, sass',
+				sort: 10
 			})
-		}
-		*/
+		}		
 	},
+*/
 	computed: {
 		postsLoaded() {
 			return this.$store.getters['posts/getPostsLoaded']
