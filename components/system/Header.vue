@@ -2,7 +2,7 @@
 	<header class="header">
 		<div class="container header__container">
 			<div class="header__main">
-				<h1 :key="getH1e" v-html="elemHtml"></h1>
+				<h1 :key="updateH1" v-html="elemHtml"></h1>
 			</div>
 		</div>	
 	</header>
@@ -12,16 +12,21 @@
 export default {
 	data() {
 		return {
-			elemHtml: ''
+			elemHtml: '',
+			titleLoad: false
 		}
 	},
+	created() {
+		this.elemHtml = this.$store.getters['getH1']
+	},
 	computed: {
-		getH1e() {
-			let newh1 = this.$store.getters['getH1'].split('')
+		updateH1() {
+			let newh1 = this.$store.getters['getH1']
 			
-			setTimeout(this.h1Animate, 50, 0, newh1)
-
-			return newh1.join('')
+			if (this.titleLoad) setTimeout(this.h1Animate, 50, 0, newh1.split(''))
+			else this.titleLoad = true
+			
+			return newh1
 		}
 	},
 	methods: {

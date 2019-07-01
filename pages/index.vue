@@ -32,8 +32,10 @@ export default {
 		]
 		}
 	},
+	fetch({store}) {
+		store.dispatch('setH1', 'Дмитрий Липатов')
+	},
 	created() {
-		this.$store.dispatch('setH1', 'Дмитрий Липатов')
 		this.$store.dispatch('posts/nuxtServerInit')
 	},
 	computed: {

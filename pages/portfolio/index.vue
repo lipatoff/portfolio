@@ -26,8 +26,10 @@ export default {
 		]
 		}
 	},
+	fetch({store}) {
+		store.dispatch('setH1', 'Портфолио')
+	},
 	created() {
-		this.$store.dispatch('setH1', 'Портфолио')
 		this.$store.dispatch('posts/nuxtServerInit')
 	},
 	methods: {

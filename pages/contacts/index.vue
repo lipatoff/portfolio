@@ -24,16 +24,8 @@ export default {
 		]
 		}
 	},
-	created() {
-		this.$store.dispatch('setH1', 'Контакты')
-		//this.$store.dispatch('posts/nuxtServerInit')
-	},
-/*
-	computed: {
-		postsLoaded() {
-			return this.$store.getters['posts/getPostsLoaded']
-		}
+	fetch({store}) {
+		store.dispatch('setH1', 'Контакты')
 	}
-*/
 }
 </script>
