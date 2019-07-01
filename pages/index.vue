@@ -19,7 +19,7 @@ export default {
 	},
 	head() {
 		let title = 'Dmitrii Lipatov',
-			descr = 'Сайт-портфолио Дмитрий Липатова',
+			descr = 'Сайт-портфолио Дмитрия Липатова',
 			type = 'site'
 
 		return {
