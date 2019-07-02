@@ -2,7 +2,9 @@
   <div>
     <Nav />
     <Header />
-    <nuxt />
+    <main class="main">
+      <nuxt />
+    </main>
     <Footer />
   </div>
 </template>

@@ -23,7 +23,7 @@ export default {
 		updateH1() {
 			let newh1 = this.$store.getters['getH1']
 			
-			if (this.titleLoad) setTimeout(this.h1Animate, 50, 0, newh1.split(''))
+			if (this.titleLoad) setTimeout(this.h1Animate, 60, 0, newh1.split(''))
 			else this.titleLoad = true
 			
 			return newh1
@@ -48,7 +48,7 @@ export default {
 			this.elemHtml = h1Html.join('')
 			i = i+1
 
-			return setTimeout(this.h1Animate, 50, i, newh1, count, h1)
+			return setTimeout(this.h1Animate, 60, i, newh1, count, h1)
 			
 		}
 	}

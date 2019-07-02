@@ -1,10 +1,12 @@
 /*ТЕЛО*/
 @import 'base/body'
+.section
+	padding-top: 70px
 
 /*ЗАГОЛОВКИ*/
 @import 'base/title'
 h1
-	margin: 50px 0
+	margin: 70px 0 50px
 
 /*СПИСКИ*/
 //import 'base/list'
@@ -18,7 +20,7 @@ img
 @import 'base/button'
 .button
 	text-transform: uppercase
-	font-size: 15px
+	font-size: 0.8em
 	padding: 1em 3em
 	border: 1px solid
 	border-radius: 50px
@@ -33,3 +35,10 @@ td
 .fbetween
 	+flex-min
 	align-items: center
+
+/*АНИМАЦИЯ*/
+.fade-enter-active, .fade-leave-active
+	transition: opacity .2s
+
+.fade-enter, .fade-leave-to
+	opacity: 0

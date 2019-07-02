@@ -22,12 +22,10 @@ export default {
 	/*
 	** Animation
 	*/
-	/*
-	transition: {
-		name: 'fade',
-		mode: 'out-in'
-	},
-	*/
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
+  },
 
   /*
   ** Customize the progress-bar color

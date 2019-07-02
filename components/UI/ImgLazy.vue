@@ -1,0 +1,27 @@
+<template>
+	<img
+		class="img img_hide"
+		@load="$event.target.classList.remove('img_hide')"
+		v-bind="$attrs"
+		:src="$router.options.base + src"
+	/>
+</template>
+
+<script>
+export default {
+	props: {
+		src: {
+			type: String,
+			default: ''
+		}
+	}
+}
+</script>
+
+
+<style lang="sass">
+.img
+	transition: opacity $animate
+	&_hide
+		opacity: 0
+</style>

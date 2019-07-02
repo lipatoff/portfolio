@@ -27,7 +27,7 @@ export default {
 	&__container
 		padding: 20px $padding 50px
 	&__block
-		background-color: #d0d0d0
+		background-color: #3f2e24
 		overflow: hidden
 footer p
 	margin: 0

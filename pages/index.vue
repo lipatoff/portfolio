@@ -1,21 +1,32 @@
 <template>
 	<div class="container">
-		<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Океана, первую толку строчка курсивных ты обеспечивает предложения, выйти домах переписали, взгляд дороге послушавшись за они семь все последний что?</p>
-		<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Океана, первую толку строчка курсивных ты обеспечивает предложения, выйти домах переписали, взгляд дороге послушавшись за они семь все последний что?</p>
-		<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Океана, первую толку строчка курсивных ты обеспечивает предложения, выйти домах переписали, взгляд дороге послушавшись за они семь все последний что?</p>
-		<p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Океана, первую толку строчка курсивных ты обеспечивает предложения, выйти домах переписали, взгляд дороге послушавшись за они семь все последний что?</p>
-		<h2>Портфолио</h2>
-		<postsList :posts="postsLoaded" />
-		<div class="center"><nuxt-link class="button" to="/portfolio/">Все работы</nuxt-link></div>
+		<section class="hello">
+			<div class="hello__img-wrap">
+				<ImgLazy src="img/man.jpg" alt="Дмитрий" class="hello__img" />
+			</div>
+			<div class="hello__info">
+				<p>Front-End Web Developer</p>
+				<p>г. Москва</p>
+				<socLinks></socLinks>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2>Портфолио</h2>
+			<postsList :posts="postsLoaded" />
+			<div class="center"><nuxt-link class="button" to="/portfolio/">Все работы</nuxt-link></div>
+		</section>
 	</div>
 </template>
 
 <script>
+import socLinks from '@/components/SocLinks.vue'
 import postsList from '@/components/Posts/PostsList.vue'
 
 export default {
 	components: {
-		postsList
+		socLinks,
+		postsList,
 	},
 	head() {
 		let title = 'Dmitrii Lipatov',
@@ -46,3 +57,16 @@ export default {
 	}
 }
 </script>
+
+<style lang="sass">
+.hello
+	display: flex
+	&__img-wrap
+		order: 1
+		width: 177px
+		height: 177px
+		margin-left: 40px
+		font-size: 0
+		overflow: hidden
+		border-radius: 50%
+</style>
