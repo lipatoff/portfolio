@@ -1,5 +1,4 @@
 <template>
-<transition name="show">
 	<div class="post">
 		<div class="post__img-wrap">
 			<ImgLazy :src="post.img" :alt="post.title" class="post__img" />
@@ -15,17 +14,15 @@
 					<tr><td>Роль:</td><td>{{ post.role }}</td></tr>
 					<tr><td>Стек:</td><td>{{ post.tools }}</td></tr>
 				</tbody>
-			</table>			
+			</table>
 			<p class="post__descr" v-html="post.descr"></p>
-
 		</div>
 	</div>
-</transition>
 </template>
 
 <script>
 export default {
-	props: { 
+	props: {
 		post: {
 			type: Object,
 			required: true
@@ -37,12 +34,6 @@ export default {
 <style lang="sass">
 
 /*АНИМАЦИЯ*/
-.show-enter-active, .show-leave-active
-	transition: opacity .2s
-
-.show-enter, .show-leave-to
-	opacity: 0
-
 .post
 	margin: 0 -10px 30px
 	padding: 20px
@@ -50,7 +41,7 @@ export default {
 	font-size: 16px
 	overflow: hidden
 	transition: box-shadow $animate-speed
-	
+
 	&__head
 		+flex-min
 		margin: 5px 0 10px
@@ -62,16 +53,18 @@ export default {
 		transition: color $animate-speed
 	&__web
 		font-size: 0
-		opacity: 0
-		transform: translateX(30px)
-		transition: opacity $animate-speed, transform $animate
+		color: #777
+		+hover
+			opacity: 0
+			transform: translateX(30px)
+			transition: opacity $animate-speed, transform $animate
+			&:hover
+				color: currentColor
 	&__svg
 		width: 35px
 		margin-top: 5px
-		fill: #777
+		fill: currentColor
 		opacity: 0.8
-		&:hover
-			fill: currentColor
 	&__info
 		padding: 0 1rem
 	&__props
@@ -104,7 +97,7 @@ export default {
 				opacity: 1
 				transform: none
 				transition: opacity $animate, transform $animate
-	
+
 	+media($m)
 		width: 50%
 	+media($l)

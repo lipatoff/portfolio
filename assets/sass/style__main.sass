@@ -2,11 +2,24 @@
 @import 'base/body'
 .section
 	padding-top: 70px
+p
+	margin: 0 0 1.4em
 
 /*ЗАГОЛОВКИ*/
 @import 'base/title'
 h1
 	margin: 70px 0 50px
+	font-size: calc(5vw + 2vh + 1vmin)
+	+media($s)
+		font-size: 2.2em
+h2
+	font-size: calc(5vw + 1.5vh + 1vmin)
+	+media($s)
+		font-size: 1.9em
+h1, h2
+	text-align: center
+	+media($s)
+		text-align: left
 
 /*СПИСКИ*/
 //import 'base/list'
@@ -25,7 +38,9 @@ img
 	border: 1px solid
 	border-radius: 50px
 	font-weight: $font-bold
-	
+	&:hover
+		+hover
+			animation: none
 
 /*ТАБЛИЦЫ*/
 //import 'base/table'

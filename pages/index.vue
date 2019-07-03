@@ -5,9 +5,24 @@
 				<ImgLazy src="img/man.jpg" alt="Дмитрий" class="hello__img" />
 			</div>
 			<div class="hello__info">
-				<p>Front-End Web Developer</p>
-				<p>г. Москва</p>
-				<socLinks></socLinks>
+				<p>Front-End Web Developer
+				<br/>г. Москва</p>
+				<SocLinks></SocLinks>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2>Технологии</h2>
+			<div class="skills">
+				<div class="skills__block">
+					<p><b class="skills__type">Frontend: </b><span class="skills__list">Vue.js, Nuxt.js, ES6, Axios<br/>JavaScript, Ajax, JSON, jQuery<br/>CSS, Sass, BEM<br/>HTML, Xsl, XML</span></p>
+					<p><b class="skills__type">Backend: </b><span class="skills__list">PHP, MySQL, CMS</span></p>
+				</div>
+				<div class="skills__block">
+					<p><b class="skills__type">Сборка: </b><span class="skills__list">Nuxt, Vue-cli, Gulp</span></p>
+					<p><b class="skills__type">Оптимизация: </b><span class="skills__list">Mobile First, Lazy Load,<br/>SEO, Google&nbsp;PageSpeed</span></p>
+					<p><b class="skills__type">Прочее: </b><span class="skills__list">Git, Adobe Photoshop, Figma</span></p>
+				</div>
 			</div>
 		</section>
 
@@ -20,12 +35,7 @@
 </template>
 
 <script>
-import socLinks from '@/components/SocLinks.vue'
-
 export default {
-	components: {
-		socLinks
-	},
 	head() {
 		let title = 'Dmitrii Lipatov',
 			descr = 'Сайт-портфолио Дмитрия Липатова',
@@ -58,13 +68,35 @@ export default {
 
 <style lang="sass">
 .hello
-	display: flex
+	text-align: center
 	&__img-wrap
-		order: 1
+		margin: 0 auto 20px
 		width: 177px
 		height: 177px
-		margin-left: 40px
 		font-size: 0
 		overflow: hidden
 		border-radius: 50%
+	+media($s)
+		display: flex
+		align-items: center
+		text-align: left
+		&__img-wrap
+			order: 1
+			margin: 0 0 0 40px
+
+
+.skills
+	&__type
+		float: left
+		padding-right: 0.6em
+	&__list
+		display: block
+		overflow: hidden
+
+	+media($m)
+		display: flex
+		&__block
+			width: 50%
+			&+&
+				padding: 0 0 0 20px
 </style>

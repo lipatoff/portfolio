@@ -4,7 +4,7 @@
 			<div class="header__main">
 				<h1 :key="updateH1" v-html="elemHtml"></h1>
 			</div>
-		</div>	
+		</div>
 	</header>
 </template>
 
@@ -13,43 +13,47 @@ export default {
 	data() {
 		return {
 			elemHtml: '',
-			titleLoad: false
+			titleLoad: false,
+			h1Now: '',
+			h1New: ''
 		}
 	},
 	created() {
 		this.elemHtml = this.$store.getters['getH1']
+		this.h1Now = this.elemHtml.split('')
 	},
 	computed: {
 		updateH1() {
 			let newh1 = this.$store.getters['getH1']
-			
-			if (this.titleLoad) setTimeout(this.h1Animate, 60, 0, newh1.split(''))
-			else this.titleLoad = true
-			
+			this.h1New = newh1.split('')
 			return newh1
 		}
 	},
+	watch: {
+		h1New() {
+			if (this.titleLoad) this.h1Animate( Math.max(this.h1New.length, this.h1Now.length) )
+			else this.titleLoad = true
+		}
+	},
 	methods: {
-		h1Animate(i, newh1, count = -1, h1 = this.elemHtml.split('')) {
-
-			if (count < 0) count = Math.max(newh1.length, h1.length)
+		h1Animate(count, i = 0, h1NewNow = this.h1New) {
+			if (h1NewNow != this.h1New) return false
 
 			if (i >= count) {
-				this.elemHtml = newh1.join('')
+				this.elemHtml = this.h1New.join('')
+				this.h1Now = this.elemHtml.split('')
 				return false
 			}
 
-			let ne = newh1[i] ? newh1[i] : ''
-			h1[i] = ne
-			
-			let h1Html = [...h1]
+			this.h1Now[i] = this.h1New[i] ? this.h1New[i] : ''
+
+			let h1Html = [...this.h1Now]
 			h1Html[i] = `<span>${h1Html[i]}</span>`
 
 			this.elemHtml = h1Html.join('')
-			i = i+1
 
-			return setTimeout(this.h1Animate, 60, i, newh1, count, h1)
-			
+			return setTimeout(this.h1Animate, 50, count, ++i, h1NewNow)
+
 		}
 	}
 }
@@ -58,20 +62,23 @@ export default {
 <style lang="sass">
 .header
 	&__container
-		padding-top: 15px
-		padding-bottom: 15px
+		padding: 70px 1rem 15px
 
 	&__figure
 		text-align: center
 		font-size: 0
+
+
+	+media($xs)
+		&__container
+			padding: 70px $padding 15px
 
 	+media($header)
 		&__container
 			+flex-min
 			align-items: center
 
-	padding-top: 70px
-	+media($nav)
+		+media($nav)
 		padding-top: 0
 
 h1 span
