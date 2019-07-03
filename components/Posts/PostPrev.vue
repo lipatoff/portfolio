@@ -1,7 +1,8 @@
 <template>
+<transition name="show">
 	<div class="post">
 		<div class="post__img-wrap">
-			<img :src="$router.options.base+post.img" :alt="post.title" class="post__img">
+			<ImgLazy :src="post.img" :alt="post.title" class="post__img" />
 		</div>
 		<div class="post__info">
 			<div class="post__head" :style="`color:${post.color}`">
@@ -19,6 +20,7 @@
 
 		</div>
 	</div>
+</transition>
 </template>
 
 <script>
@@ -33,6 +35,14 @@ export default {
 </script>
 
 <style lang="sass">
+
+/*АНИМАЦИЯ*/
+.show-enter-active, .show-leave-active
+	transition: opacity .2s
+
+.show-enter, .show-leave-to
+	opacity: 0
+
 .post
 	margin: 0 -10px 30px
 	padding: 20px

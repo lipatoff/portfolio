@@ -7,6 +7,10 @@ export const mutations = {
 	}
 }
 export const actions = {
+	async nuxtServerInit({ dispatch }) {
+		await dispatch('posts/nuxtServerInit')
+	},
+
 	setH1({commit}, payload) {
 		commit('setH1', payload)
 	}

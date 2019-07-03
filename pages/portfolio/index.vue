@@ -6,12 +6,7 @@
 </template>
 
 <script>
-import postsList from '@/components/Posts/PostsList.vue'
-
 export default {
-	components: {
-		postsList
-	},
 	head() {
 		let title = 'Мое Портфолио',
 			descr = 'Список работ',

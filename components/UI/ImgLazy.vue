@@ -21,7 +21,7 @@ export default {
 
 <style lang="sass">
 .img
-	transition: opacity $animate
+	animation: show $animate
 	&_hide
-		opacity: 0
+		display: none
 </style>

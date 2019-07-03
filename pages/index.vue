@@ -13,7 +13,7 @@
 
 		<section class="section">
 			<h2>Портфолио</h2>
-			<postsList :posts="postsLoaded" />
+			<PostsList :posts="postsLoaded" />
 			<div class="center"><nuxt-link class="button" to="/portfolio/">Все работы</nuxt-link></div>
 		</section>
 	</div>
@@ -21,12 +21,10 @@
 
 <script>
 import socLinks from '@/components/SocLinks.vue'
-import postsList from '@/components/Posts/PostsList.vue'
 
 export default {
 	components: {
-		socLinks,
-		postsList,
+		socLinks
 	},
 	head() {
 		let title = 'Dmitrii Lipatov',
