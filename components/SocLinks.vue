@@ -82,6 +82,8 @@ export default {
 			fill: currentColor
 
 	+media($s)
-		margin: 0 -2%
+		margin: 0
+		&_home
+			margin: 0 -2%
 
 </style>

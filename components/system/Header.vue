@@ -31,7 +31,7 @@ export default {
 	},
 	watch: {
 		h1New() {
-			if (this.titleLoad) this.h1Animate( Math.max(this.h1New.length, this.h1Now.length) )
+			if (this.titleLoad) setTimeout(this.h1Animate, 100, Math.max(this.h1New.length, this.h1Now.length))
 			else this.titleLoad = true
 		}
 	},

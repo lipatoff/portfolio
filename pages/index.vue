@@ -7,7 +7,7 @@
 			<div class="hello__info">
 				<p>Front-End Web Developer
 				<br/>г. Москва</p>
-				<SocLinks></SocLinks>
+				<SocLinks :bclass="'soc_home'"/>
 			</div>
 		</section>
 
@@ -20,10 +20,14 @@
 				</div>
 				<div class="skills__block">
 					<p><b class="skills__type">Сборка: </b><span class="skills__list">Nuxt, Vue-cli, Gulp</span></p>
-					<p><b class="skills__type">Оптимизация: </b><span class="skills__list">Mobile First, Lazy Load,<br/>SEO, Google&nbsp;PageSpeed</span></p>
-					<p><b class="skills__type">Прочее: </b><span class="skills__list">Git, Adobe Photoshop, Figma</span></p>
+					<p><b class="skills__type">Прочее: </b><span class="skills__list">Mobile First, Lazy Load,<br/>SEO, Google&nbsp;PageSpeed,<br/>Adobe Photoshop, Figma,<br/>Git, GitHub</span></p>
 				</div>
 			</div>
+		</section>
+
+		<section class="section">
+			<h2>Демонстрация Vue</h2>
+			<vuePort/>
 		</section>
 
 		<section class="section">
@@ -35,7 +39,11 @@
 </template>
 
 <script>
+import vuePort from '@/components/VuePort.vue'
 export default {
+	components: {
+		vuePort
+	},
 	head() {
 		let title = 'Dmitrii Lipatov',
 			descr = 'Сайт-портфолио Дмитрия Липатова',
@@ -87,6 +95,7 @@ export default {
 
 .skills
 	&__type
+		min-width: 5em
 		float: left
 		padding-right: 0.6em
 	&__list

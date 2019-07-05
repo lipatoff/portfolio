@@ -40,7 +40,6 @@ export default {
 	border-radius: 25px
 	font-size: 16px
 	overflow: hidden
-	transition: box-shadow $animate-speed
 
 	&__head
 		+flex-min
@@ -84,7 +83,7 @@ export default {
 		&:hover
 			position: relative
 			z-index: 2
-			box-shadow: 0 0 10px 3px #ddd
+			box-shadow: 0 0 5px 1px #585858, 0 0 10px 3px #ccc
 			transition: box-shadow $animate*1.2
 		&:hover &
 			&__img
