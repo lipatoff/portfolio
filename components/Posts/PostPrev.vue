@@ -37,7 +37,7 @@ export default {
 .post
 	margin: 0 -10px 30px
 	padding: 20px
-	border-radius: 25px
+	border-radius: 15px
 	font-size: 16px
 	overflow: hidden
 
@@ -83,7 +83,7 @@ export default {
 		&:hover
 			position: relative
 			z-index: 2
-			box-shadow: 0 0 5px 1px #585858, 0 0 10px 3px #ccc
+			box-shadow: 0 0 2px 1px #757575, 0 0 10px 8px #dedede
 			transition: box-shadow $animate*1.2
 		&:hover &
 			&__img
