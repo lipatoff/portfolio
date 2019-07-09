@@ -15,8 +15,4 @@ export const actions = {
 		commit('setH1', payload)
 	}
 }
-export const getters = {
-	getH1(state) {
-		return state.h1
-	}
-}
+export const getters = { }

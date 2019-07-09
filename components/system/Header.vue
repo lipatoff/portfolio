@@ -19,12 +19,12 @@ export default {
 		}
 	},
 	created() {
-		this.elemHtml = this.$store.getters['getH1']
+		this.elemHtml = this.$store.state.h1
 		this.h1Now = this.elemHtml.split('')
 	},
 	computed: {
 		updateH1() {
-			let newh1 = this.$store.getters['getH1']
+			let newh1 = this.$store.state.h1
 			this.h1New = newh1.split('')
 			return newh1
 		}
@@ -78,8 +78,9 @@ export default {
 			+flex-min
 			align-items: center
 
-		+media($nav)
-		padding-top: 0
+	+media($nav)
+		&__container
+			padding-top: 0
 
 h1 span
 	color: #ccc

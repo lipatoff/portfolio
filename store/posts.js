@@ -41,7 +41,7 @@ export const actions = {
 */
 }
 export const getters = {
-	getPostsLoaded(state) {
-		return state.postsLoaded
+	postsFilter: (state) => (count) => {
+		return state.postsLoaded.slice(0, count)
 	}
 }

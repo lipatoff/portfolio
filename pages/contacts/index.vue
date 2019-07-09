@@ -10,17 +10,15 @@
 export default {
 	head() {
 		let title = 'Мои Контакты',
-			descr = 'Как со мной связаться',
-			type = 'site'
+			descr = 'Как со мной связаться'
 
 		return {
-		title: title,
-		meta: [
-			{ hid: 'og:title', name: 'og:title', content: title },
-			{ hid: 'description', name: 'description', content: descr },
-			{ hid: 'og:description', name: 'og:description', content: descr },
-			{ hid: 'og:type', name: 'og:type', content: type },
-		]
+			title: title,
+			meta: [
+				{ hid: 'og:title', name: 'og:title', content: title },
+				{ hid: 'description', name: 'description', content: descr },
+				{ hid: 'og:description', name: 'og:description', content: descr },
+			]
 		}
 	},
 	fetch({store}) {

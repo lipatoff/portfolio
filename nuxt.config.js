@@ -3,7 +3,7 @@ import axios from 'axios'
 export default {
   mode: 'universal',
   //mode: 'spa',
-  
+
   /*
   ** Headers of the page
   */
@@ -12,6 +12,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'og:type', name: 'og:type', content: 'site' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

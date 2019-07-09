@@ -1,25 +1,25 @@
 <template>
 	<div class="container">
-		<postsList :posts="postsLoaded" />
+		<postsList :posts="posts" />
 		<!-- <button @click="addPost">dd</button> -->
 	</div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
 	head() {
 		let title = 'Мое Портфолио',
-			descr = 'Список работ',
-			type = 'site'
+			descr = 'Список работ'
 
 		return {
-		title: title,
-		meta: [
-			{ hid: 'og:title', name: 'og:title', content: title },
-			{ hid: 'description', name: 'description', content: descr },
-			{ hid: 'og:description', name: 'og:description', content: descr },
-			{ hid: 'og:type', name: 'og:type', content: type },
-		]
+			title: title,
+			meta: [
+				{ hid: 'og:title', name: 'og:title', content: title },
+				{ hid: 'description', name: 'description', content: descr },
+				{ hid: 'og:description', name: 'og:description', content: descr }
+			]
 		}
 	},
 	fetch({store}) {
@@ -30,7 +30,7 @@ export default {
 	},
 /*
 	methods: {
-		
+
 		addPost(){
 			this.$store.dispatch('posts/addPost', {
 				title: 'Консалтинг',
@@ -43,12 +43,12 @@ export default {
 				tools: 'gulp, sass',
 				sort: 10
 			})
-		}		
+		}
 	},
 */
 	computed: {
-		postsLoaded() {
-			return this.$store.getters['posts/getPostsLoaded']
+		posts() {
+			return this.$store.state.posts.postsLoaded
 		}
 	}
 }

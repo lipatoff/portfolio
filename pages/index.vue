@@ -39,24 +39,24 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import vuePort from '@/components/VuePort.vue'
+
 export default {
 	components: {
 		vuePort
 	},
 	head() {
 		let title = 'Dmitrii Lipatov',
-			descr = 'Сайт-портфолио Дмитрия Липатова',
-			type = 'site'
+			descr = 'Сайт-портфолио Дмитрия Липатова'
 
 		return {
-		title: title,
-		meta: [
-			{ hid: 'og:title', name: 'og:title', content: title },
-			{ hid: 'description', name: 'description', content: descr },
-			{ hid: 'og:description', name: 'og:description', content: descr },
-			{ hid: 'og:type', name: 'og:type', content: type },
-		]
+			title: title,
+		 	meta: [
+		 		{ hid: 'og:title', name: 'og:title', content: title },
+		 		{ hid: 'description', name: 'description', content: descr },
+		 		{ hid: 'og:description', name: 'og:description', content: descr }
+		 	]
 		}
 	},
 	fetch({store}) {
@@ -66,9 +66,11 @@ export default {
 		this.$store.dispatch('posts/nuxtServerInit')
 	},
 	computed: {
+		...mapGetters({
+			postsFilter: 'posts/postsFilter'
+		}),
 		postsLoaded() {
-			let posts = this.$store.getters['posts/getPostsLoaded']
-			return posts.slice(0,6)
+			return this.postsFilter(6)
 		}
 	}
 }
