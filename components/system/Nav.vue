@@ -1,7 +1,7 @@
 <template>
 	<nav class="nav">
 		<div class="container nav__container fbetween">
-			<nuxt-link class="logo" to="/"><img :src="$router.options.base+'/img/logo.svg'" alt="Логотип"/></nuxt-link>
+			<nuxt-link class="logo" to="/"><img :src="$router.options.base+'img/logo.svg'" alt="Логотип"/></nuxt-link>
 			<Burger :active="active" @click="toggleActive" />
 			<Menu :bclass="menuClass" @click="toggleActive" />
 		</div>
