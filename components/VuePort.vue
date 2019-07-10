@@ -19,7 +19,7 @@ export default {
 			items: [
 				{
 					title: 'Этот сайт',
-					repo: '',
+					repo: 'https://github.com/lipatoff/portfolio',
 					type: 'Nuxt'
 				},
 				{
