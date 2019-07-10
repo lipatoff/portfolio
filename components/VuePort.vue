@@ -67,7 +67,8 @@ export default {
 		fill: $color-a
 	&__logo
 		display: inline-block
-		width: 20px
+		vertical-align: middle
+		width: 32px
 		margin-right: 10px
 
 </style>

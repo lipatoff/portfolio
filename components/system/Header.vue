@@ -31,7 +31,7 @@ export default {
 	},
 	watch: {
 		h1New() {
-			if (this.titleLoad) setTimeout(this.h1Animate, 100, Math.max(this.h1New.length, this.h1Now.length))
+			if (this.titleLoad) setTimeout(this.h1Animate, 500, Math.max(this.h1New.length, this.h1Now.length))
 			else this.titleLoad = true
 		}
 	},
@@ -52,8 +52,7 @@ export default {
 
 			this.elemHtml = h1Html.join('')
 
-			return setTimeout(this.h1Animate, 50, count, ++i, h1NewNow)
-
+			return setTimeout(this.h1Animate, 65, count, ++i, h1NewNow)
 		}
 	}
 }

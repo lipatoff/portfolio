@@ -1,6 +1,5 @@
-# portfolio
-
-> My epic Nuxt.js project
+# Portfolio with Nuxt.js
+[Site](https://lipatoff.github.io/portfolio/)
 
 ## Build Setup
 
