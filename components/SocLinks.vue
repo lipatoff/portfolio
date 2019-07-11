@@ -65,12 +65,14 @@ export default {
 	max-width: 280px
 	margin: 20px auto 0
 	&__item
+		width: 10px
 		padding: 2%
 		&+&
 			margin-left: 5%
 	&__icon
 		fill: $color-text
 		transition: fill $animate-speed
+		max-height: 44px
 
 	&_footer
 		width: 170px

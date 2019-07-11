@@ -11,7 +11,7 @@
 
 				<!-- body -->
 				<div class="modal__body">
-					<slot/>			
+					<slot/>
 				</div>
 
 			</div>
@@ -43,13 +43,13 @@ export default {
 	right: 0
 	display: flex
 	align-items: center
-	justify-content: center		
+	justify-content: center
 	background-color: #fff
 	transition: opacity .2s ease
 	&__container
 		position: relative
 		padding: 20px 20px 5px
-		background-color: #fff  
+		background-color: #fff
 	&__header
 		display: flex
 		align-self: center
@@ -63,7 +63,7 @@ export default {
 		font-size: 50px
 		font-family: serif
 	&__body
-		+touch 
+		+touch
 		overflow-y: auto
 		max-height: 80vh
 

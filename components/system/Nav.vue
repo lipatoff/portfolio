@@ -43,7 +43,6 @@ export default {
 	position: fixed
 	top: 0
 	z-index: 998
-	height: $nav-height
 	color: $color-nav_text
 	font-size: $font-size
 	box-shadow: 0 0 0 1px $color-base
@@ -52,6 +51,9 @@ export default {
 		right: 0
 	@else
 		left: 0
+	&__container
+		height: $nav-height
+
 
 	+media($nav)
 		position: static
@@ -84,5 +86,4 @@ export default {
 .logo
 	width: 195px
 	font-size: 0
-	padding: 27px 0
 </style>

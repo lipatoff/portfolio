@@ -61,6 +61,7 @@ export default {
 				color: currentColor
 	&__svg
 		width: 35px
+		height: 35px
 		margin-top: 5px
 		fill: currentColor
 		opacity: 0.8

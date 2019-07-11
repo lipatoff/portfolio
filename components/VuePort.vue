@@ -42,8 +42,8 @@ export default {
 				},
 			],
 			logos: {
-				'Vue' : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 221"><path d="M205 0h51L128 221 0 0h98l30 51 29-51h48z" fill="#41B883"/><path d="M0 0l128 221L256 0h-51l-77 132L51 0H0z" fill="#41B883"/><path d="M51 0l77 133L205 0h-48l-29 51L98 0H51z" fill="#35495E"/></svg>',
-				'Nuxt' : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 303"><path d="M123 292l-1-1c-2-4-2-8-2-12H25L167 27l59 107 19-14-59-107c-1-2-8-13-20-13-5 0-13 2-19 13L4 268c-1 2-7 14-1 24 2 5 8 10 21 10h120c-13 0-19-5-21-10z" fill="#00C58E"/><path d="M395 269L280 62c-2-2-8-13-20-13-5 0-12 2-19 13l-15 24v48l34-59 114 204h-43a20 20 0 0 1-2 12v1c-6 10-19 10-21 10h68c2 0 15 0 21-10 2-5 4-13-2-23z" fill="#108775"/><path d="M332 292v-1l1-2c1-3 2-7 1-10l-4-11-90-158-13-24h-1l-13 24-91 158-3 11a21 21 0 0 0 2 13c3 5 9 10 21 10h168c3 0 16 0 22-10zM226 134l83 145H144l82-145z" fill="#2F495E"/></svg>'
+				'Vue' : '<svg class="vueworks__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 221"><path d="M205 0h51L128 221 0 0h98l30 51 29-51h48z" fill="#41B883"/><path d="M0 0l128 221L256 0h-51l-77 132L51 0H0z" fill="#41B883"/><path d="M51 0l77 133L205 0h-48l-29 51L98 0H51z" fill="#35495E"/></svg>',
+				'Nuxt' : '<svg class="vueworks__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 303"><path d="M123 292l-1-1c-2-4-2-8-2-12H25L167 27l59 107 19-14-59-107c-1-2-8-13-20-13-5 0-13 2-19 13L4 268c-1 2-7 14-1 24 2 5 8 10 21 10h120c-13 0-19-5-21-10z" fill="#00C58E"/><path d="M395 269L280 62c-2-2-8-13-20-13-5 0-12 2-19 13l-15 24v48l34-59 114 204h-43a20 20 0 0 1-2 12v1c-6 10-19 10-21 10h68c2 0 15 0 21-10 2-5 4-13-2-23z" fill="#108775"/><path d="M332 292v-1l1-2c1-3 2-7 1-10l-4-11-90-158-13-24h-1l-13 24-91 158-3 11a21 21 0 0 0 2 13c3 5 9 10 21 10h168c3 0 16 0 22-10zM226 134l83 145H144l82-145z" fill="#2F495E"/></svg>'
 			}
 		}
 	}
@@ -64,11 +64,14 @@ export default {
 				opacity: 0.7
 	&__svg
 		width: 25px
+		height: 25px
 		fill: $color-a
+	&__icon
+		width: 32px
+		max-height: 28px
 	&__logo
 		display: inline-block
 		vertical-align: middle
-		width: 32px
 		margin-right: 10px
 
 </style>

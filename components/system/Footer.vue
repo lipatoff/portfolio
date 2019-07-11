@@ -20,6 +20,7 @@
 	&__border
 		display: block
 		fill: #fff
+		margin-top: -0.05em
 	&__container
 		padding: 20px $padding 50px
 	&__block
