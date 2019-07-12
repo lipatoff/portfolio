@@ -85,6 +85,7 @@ export default {
 		height: 177px
 		font-size: 0
 		overflow: hidden
+	&__img
 		border-radius: 50%
 	+media($s)
 		display: flex

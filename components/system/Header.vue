@@ -68,7 +68,7 @@ export default {
 		font-size: 0
 
 
-	+media($xs)
+	+media($s)
 		&__container
 			padding: 70px $padding 15px
 

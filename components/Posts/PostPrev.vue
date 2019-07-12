@@ -99,7 +99,7 @@ export default {
 				transition: opacity $animate, transform $animate
 
 	+media($m)
-		width: 50%
+		width: 51.9%
 	+media($l)
 		width: 35%
 </style>
