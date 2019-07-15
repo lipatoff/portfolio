@@ -1,7 +1,7 @@
 <template>
-	<div class="container">
-		<p><b>E-mail: </b><a href="mailto:dmitriy.lipatov@gmail.com">dmitriy.lipatov@gmail.com</a></p>
-		<p><b>WhatsApp / Telegram: </b>+7 (967) 115-08-98</p>
+	<div class="container cont">
+		<p class="cont__item"><b>E-mail: </b><a class="cont__link" href="mailto:dmitriy.lipatov@gmail.com">dmitriy.lipatov@gmail.com</a></p>
+		<p class="cont__item"><b>WhatsApp / Telegram: </b><span class="cont__link">+7 (967) 115-08-98</span></p>
 		<SocLinks/>
 	</div>
 </template>
@@ -26,3 +26,17 @@ export default {
 	}
 }
 </script>
+
+<style lang="sass">
+.cont
+	&__item
+		max-width: 270px
+		margin: 0 auto 1.4em
+	&__link
+		display: block
+	+media($s)
+		&__item
+			max-width: none
+		&__link
+			display: inline
+</style>

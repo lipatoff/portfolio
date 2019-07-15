@@ -34,13 +34,26 @@ img
 .button
 	text-transform: uppercase
 	font-size: 0.8em
-	padding: 1em 3em
-	border: 1px solid
+	padding: 0.9em 2.5em
+	color: $color-a
+	border: 2px solid
 	border-radius: 50px
 	font-weight: $font-bold
-	&:hover
-		+hover
-			animation: none
+	+hover
+		will-change: box-shadow
+		box-shadow: 0 0 0 $color-a inset
+		transition: box-shadow $animate, color $animate
+		&:hover
+			animation: button_on $animate
+			box-shadow: 0 -3.3em 0 $color-a inset
+			color: #fff
+
+@keyframes button_on
+	0%
+		box-shadow: 0 0 0 $color-a inset
+		color: $color-a
+	100%
+		box-shadow: 0 3.3em 0 $color-a inset
 
 /*ТАБЛИЦЫ*/
 //import 'base/table'

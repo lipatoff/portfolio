@@ -36,23 +36,30 @@ export default {
 		}
 	},
 	methods: {
-		h1Animate(count, i = 0, h1NewNow = this.h1New) {
-			if (h1NewNow != this.h1New) return false
+		h1Animate(count) {
+			let i = 0,
+				h1NewNow = this.h1New
 
-			if (i >= count) {
-				this.elemHtml = this.h1New.join('')
-				this.h1Now = this.elemHtml.split('')
-				return false
+			const funAnimate = () => {
+				if (h1NewNow != this.h1New) return false
+
+				if (i >= count) {
+					this.elemHtml = this.h1New.join('')
+					this.h1Now = this.elemHtml.split('')
+					return false
+				}
+
+				this.h1Now[i] = this.h1New[i] ? this.h1New[i] : ''
+
+				let h1Html = [...this.h1Now]
+				h1Html[i] = `<span>${h1Html[i]}</span>`
+
+				this.elemHtml = h1Html.join('')
+
+				i++
+				return setTimeout(() => requestAnimationFrame(funAnimate), 50)
 			}
-
-			this.h1Now[i] = this.h1New[i] ? this.h1New[i] : ''
-
-			let h1Html = [...this.h1Now]
-			h1Html[i] = `<span>${h1Html[i]}</span>`
-
-			this.elemHtml = h1Html.join('')
-
-			return setTimeout(this.h1Animate, 65, count, ++i, h1NewNow)
+			requestAnimationFrame(funAnimate)
 		}
 	}
 }
